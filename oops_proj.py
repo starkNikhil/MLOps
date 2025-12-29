@@ -18,16 +18,16 @@ class chatbook:
         if user_input == "2":
             self.sign_in()
         if user_input == "3":
-            pass
+            self.my_post()
         if user_input == "4":
-            pass
+            self.send_message()
         else:
             exit()
 
     def sign_up(self):
-        email = input("Enter your email -> ")
+        username = input("Enter your email -> ")
         password = input("Enter your password here -> ")
-        self.email = email
+        self.userName = username
         self.password = password
         print("Sign Up successfull !!")
         print("\n")
@@ -38,9 +38,9 @@ class chatbook:
             print("Please sign up first by pressing 1 in the main menu")
             self.menu()
         else:
-            userName = input("Enter your username -> ")
-            password = input("Enter your password -> ")
-            if userName == self.userName and password == self.password:
+            username = input("Enter your username -> ")
+            psd = input("Enter your password -> ")
+            if username == self.userName and psd == self.password:
                 print("Sign In successfull !!")
                 self.loggedIn = True
                 # self.menu()
@@ -48,5 +48,27 @@ class chatbook:
                 print("Invalid username or password")
         print("\n")
         self.menu()
+
+    def my_post(self):
+        if self.loggedIn== True:
+            text = input("Emter your message here: ")
+            print(f"Following content has been postext -> {text}")
+        else:
+            print("You need to sign in First to post someting...")
+        
+        print("\n")
+        self.menu()
+
+    def send_message(self):
+        if self.loggedIn == True:
+            txt = input("Enter your message here -> ")
+            friend = input("Enter your firend's user name here ->")
+            print(f"Your message has been sent to -> {friend}")
+        else:
+            print("You need to sign in First to post someting...")
+        
+        print("\n")
+        self.menu()
+
 
 obj = chatbook()

@@ -1,10 +1,29 @@
 class chatbook:
+
+    __user_id = 0
     def __init__(self):
+          # static variable
+        self.__name = "Default user"  #hidden attribute
+        self.id = chatbook.__user_id
+        chatbook.__user_id+= 1
         self.userName =""
         self.password = ""
         self.loggedIn = False
-        self.menu()
+        # self.menu()
     
+    def get_name(self):    # getter method
+        return self.__name
+    
+    def set_name(self,name):   # setter method
+        self.__name = name
+    @staticmethod
+    def get_id():
+        return chatbook.__user_id
+    @staticmethod
+    def set_id( id):
+        return chatbook.__user_id = id
+
+
     def menu(self):
         user_input = input(""" Welcome to chatbook!! How would you like to proceed
         1. Press 1 to Sign Up
@@ -71,4 +90,4 @@ class chatbook:
         self.menu()
 
 
-obj = chatbook()
+# obj = chatbook()
